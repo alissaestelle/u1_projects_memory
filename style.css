@@ -1,0 +1,11 @@
+body {
+  font-family: Arial;
+  display: inline-block;
+}
+
+button {
+  border: 0.5px solid #888888;
+  height: 275px;
+  width: 200px;
+  background-color: lavenderblush;
+}
