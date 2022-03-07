@@ -1,6 +1,6 @@
 # Memory Matching Game
 
-### Test your skills and flex your brain in this game of visual recall! The sooner you finish, the better your memory!
+### Test your skills and flex your brain in this game of visual recall. The sooner you finish, the better your memory!
 
 ---
 
