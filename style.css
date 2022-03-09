@@ -1,11 +1,38 @@
 body {
   font-family: Arial;
-  display: inline-block;
+  height: 100vh;
 }
 
+header {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+.grid {
+  width: 800px;
+  height: 625px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
 button {
   border: 0.5px solid #888888;
-  height: 275px;
-  width: 200px;
+  height: 200px;
+  width: 125px;
   background-color: lavenderblush;
+  background-image: transparent;
+  background-size: 100px 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.one {
+  background-image: url('https://imgur.com/4I84VuB.jpg');
 }
