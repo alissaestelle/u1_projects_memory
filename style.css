@@ -4,12 +4,19 @@ body {
 }
 
 header {
+  font-family: 'Molle', cursive;
+  font-size: x-large;
+  letter-spacing: 1px;
+  word-spacing: 4px;
   text-align: center;
+  color: goldenrod;
 }
 
 a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 30px;
+  letter-spacing: 1px;
+  word-spacing: 4px;
   font-weight: bold;
   color: goldenrod;
 }
@@ -31,8 +38,4 @@ button {
   background-size: 100px 100px;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.one {
-  background-image: url('https://imgur.com/4I84VuB.jpg');
 }

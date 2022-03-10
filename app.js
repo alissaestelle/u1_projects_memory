@@ -3,15 +3,11 @@ console.log(nodeList)
 const buttonArray = Array.from(nodeList)
 console.log(buttonArray)
 
-let sailorGuardians = [
-  "url('https://imgur.com/4I84VuB.jpg')",
-  "url('https://imgur.com/rAzmj18.jpg')",
-  "url('https://imgur.com/eKWUBnp.jpg)"
-]
-
 const usagiTsukino = "url('https://imgur.com/4I84VuB.jpg')"
+const amiMizuno = "url('https://imgur.com/Zm1Zitn.jpg')"
 const reiHino = "url('https://imgur.com/rAzmj18.jpg')"
-const amiMizuno = "url('https://imgur.com/eKWUBnp.jpg)"
+const makotoKino = "url('https://imgur.com/7m7H9QR.jpg')"
+const ami = "url('https://imgur.com/Zm1Zitn.jpg')"
 
 // Class Notes:
 // const changeClass = (arr, idx) => {
@@ -20,38 +16,48 @@ const amiMizuno = "url('https://imgur.com/eKWUBnp.jpg)"
 //   }
 // }
 
-const oddCards = buttonArray.filter((button, idx) => {
-  return idx % 2 === 0
-})
-console.log(oddCards)
-
-// const oddImages = oddCards.map((card) => {
-//   card = sailorGuardians[0]
-//   sailorGuardians[0]++
+// const oddCards = buttonArray.filter((button, idx) => {
+//   return idx % 2 === 0
 // })
-// console.log(oddImages)
+// console.log(oddCards)
 
-// for (let i = 0; i < sailorGuardians.length; i++) {
-//   while (oddCards.length < 10) oddCards[0] = sailorGuardians[i]
-//   oddCards[0]++
-// }
-
-const evenCards = buttonArray.filter((button, idx) => {
-  return idx % 2 !== 0
-})
-console.log(evenCards)
+// const evenCards = buttonArray.filter((button, idx) => {
+//   return idx % 2 !== 0
+// })
+// console.log(evenCards)
 
 const cOne = document.querySelector('#one')
-// const cTwo = document.querySelector('#two')
+const cTwo = document.querySelector('#two')
+const cThree = document.querySelector('#three')
+const cFour = document.querySelector('#four')
+const cFive = document.querySelector('#five')
 
-// const turnCard = (button, image) => {
-//   button.style.backgroundImage = image
-//   button.style.backgroundSize = '100px 100px'
-//   button.style.backgroundRepeat = 'no-repeat'
-//   button.style.backgroundPosition = 'center'
-// }
+const turnCard = (button, image) => {
+  button.style.backgroundImage = image
+  button.style.backgroundSize = '100px 100px'
+  button.style.backgroundRepeat = 'no-repeat'
+  button.style.backgroundPosition = 'center'
+}
 
-cOne.addEventListener('click', turnCard)
+cOne.addEventListener('click', () => {
+  turnCard(cOne, usagiTsukino)
+})
+
+cTwo.addEventListener('click', () => {
+  turnCard(cTwo, amiMizuno)
+})
+
+cThree.addEventListener('click', () => {
+  turnCard(cThree, reiHino)
+})
+
+cFour.addEventListener('click', () => {
+  turnCard(cFour, makotoKino)
+})
+
+// cFive.addEventListener('click', () => {
+//   turnCard(cFive)
+// })
 
 // cTwo.addEventListener('click', () => {
 //   turnCard(cTwo, "url('https://imgur.com/rAzmj18.jpg')")
