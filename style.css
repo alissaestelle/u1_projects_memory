@@ -1,9 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial;
   height: 100vh;
   display: inline;
   background-image: url('https://imgur.com/luAPYv1.jpg');
   background-size: auto;
+  margin-top: none;
 }
 
 header {
@@ -24,39 +29,28 @@ a {
   color: bisque;
 }
 
-article {
-  display: inline-block;
-}
-
 #left {
   float: left;
   width: 20%;
   font-family: 'Bebas Neue', cursive;
-  text-align: center;
+  text-align: right;
   color: bisque;
   font-size: 36px;
-}
-
-#right {
-  float: right;
-  width: 20%;
-  font-family: 'Bebas Neue', cursive;
-  text-align: center;
-  color: bisque;
-  font-size: 36px;
+  margin-right: 20px;
 }
 
 .grid {
+  height: 600px;
   width: 800px;
-  height: 625px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
+  gap: 5px;
   float: center;
 }
 button {
-  border: 0.5px solid #888888;
+  border: none;
   height: 200px;
   width: 125px;
   background-color: #f0d7f7;
