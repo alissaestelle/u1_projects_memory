@@ -1,6 +1,9 @@
 body {
   font-family: Arial;
   height: 100vh;
+  display: inline;
+  background-image: url('https://imgur.com/luAPYv1.jpg');
+  background-size: auto;
 }
 
 header {
@@ -9,16 +12,38 @@ header {
   letter-spacing: 1px;
   word-spacing: 4px;
   text-align: center;
-  color: goldenrod;
+  color: bisque;
 }
 
 a {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 34px;
   letter-spacing: 1px;
   word-spacing: 4px;
   font-weight: bold;
-  color: goldenrod;
+  color: bisque;
+}
+
+article {
+  display: inline-block;
+}
+
+#left {
+  float: left;
+  width: 20%;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  color: bisque;
+  font-size: 36px;
+}
+
+#right {
+  float: right;
+  width: 20%;
+  font-family: 'Bebas Neue', cursive;
+  text-align: center;
+  color: bisque;
+  font-size: 36px;
 }
 
 .grid {
@@ -28,12 +53,13 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
+  float: center;
 }
 button {
   border: 0.5px solid #888888;
   height: 200px;
   width: 125px;
-  background-color: lavenderblush;
+  background-color: #f0d7f7;
   background-image: transparent;
   background-size: 100px 100px;
   background-position: center;
