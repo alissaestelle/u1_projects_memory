@@ -3,11 +3,47 @@ console.log(nodeList)
 const buttonArray = Array.from(nodeList)
 console.log(buttonArray)
 
-const usagiTsukino = "url('https://imgur.com/4I84VuB.jpg')"
-const amiMizuno = "url('https://imgur.com/Zm1Zitn.jpg')"
-const reiHino = "url('https://imgur.com/rAzmj18.jpg')"
-const makotoKino = "url('https://imgur.com/7m7H9QR.jpg')"
-const ami = "url('https://imgur.com/Zm1Zitn.jpg')"
+// const sailorGuardians = [
+//   "url('https://imgur.com/4I84VuB.jpg')",
+//   "url('https://imgur.com/Zm1Zitn.jpg')",
+//   "url('https://imgur.com/rAzmj18.jpg')",
+//   "url('https://imgur.com/7m7H9QR.jpg')"
+// ]
+
+// const usagiTsukino = "url('https://imgur.com/4I84VuB.jpg')"
+// const amiMizuno = "url('https://imgur.com/Zm1Zitn.jpg')"
+// const reiHino = "url('https://imgur.com/rAzmj18.jpg')"
+// const makotoKino = "url('https://imgur.com/7m7H9QR.jpg')"
+
+const oddCards = buttonArray.filter((button, idx) => {
+  return idx % 2 === 0
+})
+console.log(oddCards)
+
+const cardImages = (i) => {
+  let sailorGuardians = [
+    "url('https://imgur.com/4I84VuB.jpg')",
+    "url('https://imgur.com/Zm1Zitn.jpg')",
+    "url('https://imgur.com/rAzmj18.jpg')",
+    "url('https://imgur.com/7m7H9QR.jpg')"
+  ]
+  for (let j = 0; j < 10; j++) {
+    ;[i].style.backgroundImage = sailorGuardians[j]
+    ;[i].style.backgroundSize = '100px 100px'
+    ;[i].style.backgroundRepeat = 'no-repeat'
+    ;[i].style.backgroundPosition = 'center'
+  }
+}
+
+for (let i = 0; i < oddCards.length; i++) {
+  oddCards[i].addEventListener('click', () => {
+    cardImages(i)
+  })
+}
+
+// To-Do
+// Flip Cards Back Over After Detection
+// Randomize Board - Card Array
 
 // Class Notes:
 // const changeClass = (arr, idx) => {
@@ -16,44 +52,39 @@ const ami = "url('https://imgur.com/Zm1Zitn.jpg')"
 //   }
 // }
 
-// const oddCards = buttonArray.filter((button, idx) => {
-//   return idx % 2 === 0
-// })
-// console.log(oddCards)
-
 // const evenCards = buttonArray.filter((button, idx) => {
 //   return idx % 2 !== 0
 // })
 // console.log(evenCards)
 
-const cOne = document.querySelector('#one')
-const cTwo = document.querySelector('#two')
-const cThree = document.querySelector('#three')
-const cFour = document.querySelector('#four')
-const cFive = document.querySelector('#five')
+// const cOne = document.querySelector('#one')
+// const cTwo = document.querySelector('#two')
+// const cThree = document.querySelector('#three')
+// const cFour = document.querySelector('#four')
+// const cFive = document.querySelector('#five')
 
-const turnCard = (button, image) => {
-  button.style.backgroundImage = image
-  button.style.backgroundSize = '100px 100px'
-  button.style.backgroundRepeat = 'no-repeat'
-  button.style.backgroundPosition = 'center'
-}
+// const turnCard = (button, image) => {
+//   button.style.backgroundImage = image
+//   button.style.backgroundSize = '100px 100px'
+//   button.style.backgroundRepeat = 'no-repeat'
+//   button.style.backgroundPosition = 'center'
+// }
 
-cOne.addEventListener('click', () => {
-  turnCard(cOne, usagiTsukino)
-})
+// cOne.addEventListener('click', () => {
+//   turnCard(cOne, usagiTsukino)
+// })
 
-cTwo.addEventListener('click', () => {
-  turnCard(cTwo, amiMizuno)
-})
+// cTwo.addEventListener('click', () => {
+//   turnCard(cTwo, amiMizuno)
+// })
 
-cThree.addEventListener('click', () => {
-  turnCard(cThree, reiHino)
-})
+// cThree.addEventListener('click', () => {
+//   turnCard(cThree, reiHino)
+// })
 
-cFour.addEventListener('click', () => {
-  turnCard(cFour, makotoKino)
-})
+// cFour.addEventListener('click', () => {
+//   turnCard(cFour, makotoKino)
+// })
 
 // cFive.addEventListener('click', () => {
 //   turnCard(cFive)
