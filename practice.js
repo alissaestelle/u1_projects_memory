@@ -10,7 +10,7 @@ const sailorGuardians = [
 
 const cardLogo = 'https://imgur.com/u2TG8t3.jpg'
 
-let currentIdx = null
+let prevIdx = null
 let flipCount = 0
 let score = 0
 
@@ -20,15 +20,13 @@ const flipCard = (div, img, idx) => {
   } else {
     div.className = 'flipped'
     img.src = sailorGuardians[idx]
-    // img.style.height = '100px'
-    // img.style.width = '100px'
     flipCount++
     console.log(`Flip Count: ${flipCount}`)
-    if (flipCount < 2) {
-      currentIdx = idx
+    if (flipCount === 1) {
+      prevIdx = idx
       //  null = [0]
       //  [0] = [1]
-      console.log(`Current Index is now: ${currentIdx}`)
+      console.log(`Previous Index: ${prevIdx}`)
       console.log(`Sailor Guardian Index is now: ${sailorGuardians[idx]}`)
     } else if (flipCount === 2) {
       checkMatch(img, idx)
@@ -37,21 +35,19 @@ const flipCard = (div, img, idx) => {
 }
 
 const checkMatch = (img, idx) => {
-  if (sailorGuardians[idx] === sailorGuardians[currentIdx]) {
+  if (sailorGuardians[idx] === sailorGuardians[prevIdx]) {
     console.log('Test')
     score++
     console.log('Score: ', score)
   } else {
     setTimeout(() => {
-      // let curCard = document.getElementById(`card-${idx}`)
-      // curCard.src = cardLogo
-      // let prevCard = document.getElementById(`card-${currentIdx}`)
-      // prevCard.src = cardLogo
-      img.src = cardLogo
-      img.style.height = '200px'
-      img.style.width = '125px'
+      let prevCard = document.getElementById(`card-${prevIdx}`)
+      let curCard = document.getElementById(`card-${idx}`)
+      prevCard.firstElementChild.src = cardLogo
+      curCard.firstElementChild.src = cardLogo
+      curCard.classList.toggle('flipped')
+      prevCard.classList.toggle('flipped')
     }, 3000)
-    // Reset within set timeout
   }
   flipCount = 0
 }
