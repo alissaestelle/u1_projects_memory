@@ -10,9 +10,9 @@ console.log(buttonArray)
 //   "url('https://imgur.com/7m7H9QR.jpg')"
 // ]
 
-// const usagiTsukino = "url('https://imgur.com/4I84VuB.jpg')"
-// const amiMizuno = "url('https://imgur.com/Zm1Zitn.jpg')"
-// const reiHino = "url('https://imgur.com/rAzmj18.jpg')"
+const usagiTsukino = "url('https://imgur.com/lJbFee3.jpg')"
+const amiMizuno = "url('https://imgur.com/Zm1Zitn.jpg')"
+const reiHino = "url('https://imgur.com/rAzmj18.jpg')"
 const makotoKino = "url('https://imgur.com/7m7H9QR.jpg')"
 const minakoAino = "url('https://imgur.com/hkCfQs5.jpg')"
 const chibiUsa = "url('https://imgur.com/G5UuUf0.jpg')"
@@ -60,9 +60,9 @@ console.log(oddCards)
 // })
 // console.log(evenCards)
 
-// const cOne = document.querySelector('#one')
-// const cTwo = document.querySelector('#two')
-// const cThree = document.querySelector('#three')
+const cOne = document.querySelector('#one')
+const cTwo = document.querySelector('#two')
+const cThree = document.querySelector('#three')
 const cFour = document.querySelector('#four')
 const cFive = document.querySelector('#five')
 const cSix = document.querySelector('#six')
@@ -70,22 +70,22 @@ const cSeven = document.querySelector('#seven')
 
 const turnCard = (button, image) => {
   button.style.backgroundImage = image
-  button.style.backgroundSize = '100px 100px'
+  button.style.backgroundSize = '225px 225px'
   button.style.backgroundRepeat = 'no-repeat'
   button.style.backgroundPosition = 'center'
 }
 
-//  cOne.addEventListener('click', () => {
-//   turnCard(cOne, usagiTsukino)
-// })
+cOne.addEventListener('click', () => {
+  turnCard(cOne, usagiTsukino)
+})
 
-// cTwo.addEventListener('click', () => {
-//   turnCard(cTwo, amiMizuno)
-// })
+cTwo.addEventListener('click', () => {
+  turnCard(cTwo, amiMizuno)
+})
 
-// cThree.addEventListener('click', () => {
-//   turnCard(cThree, reiHino)
-// })
+cThree.addEventListener('click', () => {
+  turnCard(cThree, reiHino)
+})
 
 cFour.addEventListener('click', () => {
   turnCard(cFour, makotoKino)

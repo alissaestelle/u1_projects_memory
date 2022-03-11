@@ -23,3 +23,9 @@ a {
   font-weight: bold;
   color: bisque;
 }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

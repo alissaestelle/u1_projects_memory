@@ -49,10 +49,11 @@ a {
   gap: 5px;
   float: center;
 }
+
 button {
   border: none;
-  height: 200px;
-  width: 125px;
+  height: 400px;
+  width: 250px;
   background-color: #f0d7f7;
   background-image: transparent;
   background-size: 100px 100px;

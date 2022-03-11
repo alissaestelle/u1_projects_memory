@@ -59,14 +59,13 @@ const createBoard = () => {
     let cardTop = document.createElement('img')
     cardTop.src = cardLogo
     // Make a CSS Class for Images
-    cardTop.style.height = '200px'
-    cardTop.style.width = '125px'
+    // cardTop.style.height = '200px'
+    // cardTop.style.width = '125px'
 
     let cardDiv = document.createElement('div')
     cardDiv.id = `card-${idx}`
     cardDiv.append(cardTop)
-    document.body.append(cardDiv)
-    // document.querySelector('.grid').append(cardDiv)
+    document.querySelector('.grid').append(cardDiv)
 
     cardDiv.addEventListener('click', () => {
       console.log(cardDiv)
