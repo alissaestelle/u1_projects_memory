@@ -1,9 +1,11 @@
 const sailorGuardians = [
-  'https://imgur.com/4I84VuB.jpg',
-  'https://imgur.com/4I84VuB.jpg',
-  'https://imgur.com/Zm1Zitn.jpg',
-  'https://imgur.com/rAzmj18.jpg',
-  'https://imgur.com/7m7H9QR.jpg'
+  'https://imgur.com/rmz0QP6.jpg',
+  'https://imgur.com/PTjwCsw.jpg',
+  'https://imgur.com/fDgT6qD.jpg',
+  'https://imgur.com/6ZCY7we.jpg',
+  'https://imgur.com/YqZJqKw.jpg',
+  'https://imgur.com/PyXIgcL.jpg'
+  //  'https://imgur.com/7m7H9QR.jpg'
 ]
 
 // const randomCardArr = Math.floor(Math.random * cardArr.length)
@@ -47,7 +49,7 @@ const checkMatch = (img, idx) => {
       curCard.firstElementChild.src = cardLogo
       curCard.classList.toggle('flipped')
       prevCard.classList.toggle('flipped')
-    }, 3000)
+    }, 2000)
   }
   flipCount = 0
 }
@@ -56,13 +58,15 @@ const createBoard = () => {
   sailorGuardians.forEach((guardian, idx) => {
     let cardTop = document.createElement('img')
     cardTop.src = cardLogo
+    // Make a CSS Class for Images
     cardTop.style.height = '200px'
     cardTop.style.width = '125px'
 
     let cardDiv = document.createElement('div')
     cardDiv.id = `card-${idx}`
     cardDiv.append(cardTop)
-    document.querySelector('.grid').append(cardDiv)
+    document.body.append(cardDiv)
+    // document.querySelector('.grid').append(cardDiv)
 
     cardDiv.addEventListener('click', () => {
       console.log(cardDiv)
