@@ -19,29 +19,31 @@ const sailorGuardians = [
   'https://imgur.com/VJ4dhIQ.jpg'
 ]
 
-// const randomCardArr = Math.floor(Math.random * cardArr.length)
-
 const cardLogo = 'https://imgur.com/u2TG8t3.jpg'
 
 let prevIdx = null
 let flipCount = 0
 let score = 0
+let totalTurns = 0
+
+let turnDisplay = document.querySelector('#total-turns')
+let matchDisplay = document.querySelector('#matches')
 
 const flipCard = (div, img, idx) => {
   if (div.classList.contains('flipped')) {
-    console.log('This card is flipped!')
+    console.log('A card has been flipped!')
   } else {
     div.className = 'flipped'
     img.src = sailorGuardians[idx]
+    img.className = 'card-style'
     flipCount++
-    console.log(`Flip Count: ${flipCount}`)
     if (flipCount === 1) {
       prevIdx = idx
       //  null = [0]
       //  [0] = [1]
-      console.log(`Previous Index: ${prevIdx}`)
-      console.log(`Sailor Guardian Index is now: ${sailorGuardians[idx]}`)
     } else if (flipCount === 2) {
+      totalTurns++
+      turnDisplay.innerText = totalTurns
       checkMatch(img, idx)
     }
   }
@@ -49,9 +51,8 @@ const flipCard = (div, img, idx) => {
 
 const checkMatch = (img, idx) => {
   if (sailorGuardians[idx] === sailorGuardians[prevIdx]) {
-    console.log('Test')
     score++
-    console.log('Score: ', score)
+    matchDisplay.innerText = score
   } else {
     setTimeout(() => {
       let prevCard = document.getElementById(`card-${prevIdx}`)
@@ -60,7 +61,7 @@ const checkMatch = (img, idx) => {
       curCard.firstElementChild.src = cardLogo
       curCard.classList.toggle('flipped')
       prevCard.classList.toggle('flipped')
-    }, 2000)
+    }, 1000)
   }
   flipCount = 0
 }
@@ -69,9 +70,7 @@ const createBoard = () => {
   sailorGuardians.forEach((guardian, idx) => {
     let cardTop = document.createElement('img')
     cardTop.src = cardLogo
-    // Make a CSS Class for Images
-    cardTop.style.height = '250px'
-    cardTop.style.width = '160px'
+    cardTop.className = 'card-style'
 
     let cardDiv = document.createElement('div')
     cardDiv.id = `card-${idx}`
@@ -79,7 +78,6 @@ const createBoard = () => {
     document.querySelector('.grid').append(cardDiv)
 
     cardDiv.addEventListener('click', () => {
-      console.log(cardDiv)
       flipCard(cardDiv, cardTop, idx)
     })
   })

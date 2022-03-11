@@ -8,7 +8,7 @@ body {
 
 header {
   font-family: 'Molle', cursive;
-  font-size: x-large;
+  font-size: 26px;
   letter-spacing: 1px;
   word-spacing: 4px;
   text-align: center;
@@ -17,11 +17,19 @@ header {
 
 a {
   text-decoration: none;
-  font-size: 34px;
+  font-size: 40px;
   letter-spacing: 1px;
   word-spacing: 4px;
   font-weight: bold;
   color: bisque;
+}
+
+.display {
+  height: 0px;
+}
+
+span {
+  padding: 5px;
 }
 
 #left {
@@ -30,8 +38,13 @@ a {
   font-family: 'Bebas Neue', cursive;
   text-align: right;
   color: bisque;
-  font-size: 36px;
+  font-size: 38px;
   margin-right: 20px;
+}
+
+.card-style {
+  height: 250px;
+  width: 160px;
 }
 
 .grid {
