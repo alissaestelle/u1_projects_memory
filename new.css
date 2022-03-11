@@ -32,6 +32,14 @@ span {
   padding: 5px;
 }
 
+button {
+  border: none;
+  background: none;
+  font-family: 'Bebas Neue', cursive;
+  color: bisque;
+  font-size: 38px;
+}
+
 #left {
   float: left;
   width: 15%;

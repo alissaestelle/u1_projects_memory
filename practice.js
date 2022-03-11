@@ -84,3 +84,7 @@ const createBoard = () => {
 }
 
 createBoard()
+
+// Add Reset Button
+// Randomize Board
+// Deploy: Media Query?
