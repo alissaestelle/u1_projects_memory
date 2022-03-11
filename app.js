@@ -10,13 +10,14 @@ console.log(buttonArray)
 //   "url('https://imgur.com/7m7H9QR.jpg')"
 // ]
 
-const usagiTsukino = "url('https://imgur.com/lJbFee3.jpg')"
-const amiMizuno = "url('https://imgur.com/Zm1Zitn.jpg')"
-const reiHino = "url('https://imgur.com/rAzmj18.jpg')"
-const makotoKino = "url('https://imgur.com/7m7H9QR.jpg')"
+const usagiTsukino = "url('https://imgur.com/mXffNUw.jpg')"
+const amiMizuno = "url('https://imgur.com/bfWHgAz.jpg')"
+const reiHino = "url('https://imgur.com/mESKamk.jpg')"
+const makotoKino = "url('https://imgur.com/wcSj5Ek.jpg')"
 const minakoAino = "url('https://imgur.com/hkCfQs5.jpg')"
-const chibiUsa = "url('https://imgur.com/G5UuUf0.jpg')"
+const chibiUsa = "url('https://imgur.com/sBsPDqM.jpg')"
 const mamoruChiba = "url('https://imgur.com/1Zmm7TP.jpg')"
+const serenity = "url('https://imgur.com/S0sac55.jpg')"
 
 const oddCards = buttonArray.filter((button, idx) => {
   return idx % 2 === 0
@@ -67,6 +68,7 @@ const cFour = document.querySelector('#four')
 const cFive = document.querySelector('#five')
 const cSix = document.querySelector('#six')
 const cSeven = document.querySelector('#seven')
+const cEight = document.querySelector('#eight')
 
 const turnCard = (button, image) => {
   button.style.backgroundImage = image
@@ -101,6 +103,10 @@ cSix.addEventListener('click', () => {
 
 cSeven.addEventListener('click', () => {
   turnCard(cSeven, mamoruChiba)
+})
+
+cEight.addEventListener('click', () => {
+  turnCard(cEight, serenity)
 })
 
 // cFive.addEventListener('click', () => {
