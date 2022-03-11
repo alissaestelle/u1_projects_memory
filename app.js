@@ -23,6 +23,7 @@ let score = 0
 const turnDisplay = document.querySelector('#total-turns')
 const matchDisplay = document.querySelector('#matches')
 const resetButton = document.querySelector('.reset')
+const grid = document.querySelector('.grid')
 
 const flipCard = (div, img, idx) => {
   if (div.classList.contains('flipped')) {
@@ -57,7 +58,7 @@ const checkMatch = (img, idx) => {
       curCard.firstElementChild.src = cardLogo
       curCard.classList.toggle('flipped')
       prevCard.classList.toggle('flipped')
-    }, 2500)
+    }, 2000)
   }
   flipCount = 0
 }
@@ -78,7 +79,6 @@ const createBoard = () => {
     document.querySelector('.grid').append(cardDiv)
 
     cardDiv.addEventListener('click', () => {
-      console.log(cardDiv)
       flipCard(cardDiv, cardTop, idx)
     })
   })
