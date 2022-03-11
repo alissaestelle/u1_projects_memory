@@ -1,59 +1,107 @@
-const cardArr = [
-  'https://imgur.com/4I84VuB.jpg',
-  'https://imgur.com/4I84VuB.jpg'
-  // 'https://imgur.com/Zm1Zitn.jpg'
+const sailorGuardians = [
+  'https://imgur.com/KMOWFgV.jpg',
+  'https://imgur.com/Alnxq5q.jpg',
+  'https://imgur.com/uEsruxa.jpg',
+  'https://imgur.com/M40MaoN.jpg',
+  'https://imgur.com/tz2Tviz.jpg',
+  'https://imgur.com/q9QSSYa.jpg',
+  'https://imgur.com/boZ9C0p.jpg',
+  'https://imgur.com/lrPz8Bt.jpg',
+  'https://imgur.com/VJ4dhIQ.jpg',
+  'https://imgur.com/KMOWFgV.jpg',
+  'https://imgur.com/Alnxq5q.jpg',
+  'https://imgur.com/uEsruxa.jpg',
+  'https://imgur.com/M40MaoN.jpg',
+  'https://imgur.com/tz2Tviz.jpg',
+  'https://imgur.com/q9QSSYa.jpg',
+  'https://imgur.com/boZ9C0p.jpg',
+  'https://imgur.com/lrPz8Bt.jpg',
+  'https://imgur.com/VJ4dhIQ.jpg'
 ]
 
-// const randomCardArr = Math.floor(Math.random * cardArr.length)
+const cardLogo = 'https://imgur.com/u2TG8t3.jpg'
 
-const cardBack = 'https://imgur.com/u2TG8t3.jpg'
-
-let flippedIndex
+let prevIdx = null
 let flipCount = 0
+let totalTurns = 0
 let score = 0
 
-const flipCard = (mem, card, idx) => {
-  if (mem.classList.contains('flipped')) {
-    console.log('This card is flipped!')
+const turnDisplay = document.querySelector('#total-turns')
+const matchDisplay = document.querySelector('#matches')
+const resetButton = document.querySelector('.reset')
+const grid = document.querySelector('.grid')
+
+const flipCard = (div, img, idx) => {
+  if (div.classList.contains('flipped')) {
+    console.log('A card has been flipped!')
   } else {
-    mem.setAttribute('class', 'flipped')
-    card.setAttribute('src', cardArr[idx])
+    div.className = 'flipped'
+    img.src = sailorGuardians[idx]
+    img.className = 'card-style'
     flipCount++
-    console.log(flipCount)
-    if (flipCount < 2) {
-      flippedIndex = idx
+    if (flipCount === 1) {
+      prevIdx = idx
+      //  null = [0]
+      //  [0] = [1]
     } else if (flipCount === 2) {
-      checkMatch(idx)
+      totalTurns++
+      turnDisplay.innerText = totalTurns
+      checkMatch(img, idx)
     }
   }
 }
 
-const checkMatch = (idx) => {
-  if (cardArr[idx] === cardArr[flippedIndex]) {
+const checkMatch = (img, idx) => {
+  if (sailorGuardians[idx] === sailorGuardians[prevIdx]) {
     score++
-    console.log('Score: ', score)
+    matchDisplay.innerText = score
   } else {
-    let curCard = document.getElementById(`card-${idx}`)
-    let prevCard = document.getElementById(`card-${flippedIndex}`)
-    // Reset within set timeout
+    setTimeout(() => {
+      let prevCard = document.getElementById(`card-${prevIdx}`)
+      let curCard = document.getElementById(`card-${idx}`)
+      prevCard.firstElementChild.src = cardLogo
+      curCard.firstElementChild.src = cardLogo
+      curCard.classList.toggle('flipped')
+      prevCard.classList.toggle('flipped')
+    }, 1000)
   }
   flipCount = 0
 }
 
 const createBoard = () => {
-  cardArr.forEach((card, idx) => {
-    let cardImage = document.createElement('img')
-    cardImage.setAttribute('src', cardBack)
+  // Fisher Yates Method Applied Here:
+  sailorGuardians.sort(() => Math.random() - 0.5)
+  // Source: JavaScript Info - Array Methods
 
-    let memCard = document.createElement('div')
-    memCard.setAttribute('id', `card-${idx}`)
-    memCard.append(cardImage)
-    document.body.append(memCard)
+  sailorGuardians.forEach((guardian, idx) => {
+    let cardTop = document.createElement('img')
+    cardTop.src = cardLogo
+    cardTop.className = 'card-style'
 
-    memCard.addEventListener('click', () => {
-      flipCard(memCard, cardImage, idx)
+    let cardDiv = document.createElement('div')
+    cardDiv.id = `card-${idx}`
+    cardDiv.append(cardTop)
+    document.querySelector('.grid').append(cardDiv)
+
+    cardDiv.addEventListener('click', () => {
+      flipCard(cardDiv, cardTop, idx)
     })
   })
 }
 
+const refreshBoard = () => {
+  prevIdx = null
+  flipCount = 0
+  totalTurns = 0
+  score = 0
+  turnDisplay.innerText = totalTurns
+  matchDisplay.innerText = score
+  grid.innerHTML = null
+  createBoard()
+}
+
+resetButton.addEventListener('click', refreshBoard)
+
 createBoard()
+
+// Deploy: Media Query?

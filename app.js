@@ -17,8 +17,8 @@ const cardLogo = 'https://imgur.com/u2TG8t3.jpg'
 
 let prevIdx = null
 let flipCount = 0
-let score = 0
 let totalTurns = 0
+let score = 0
 
 const turnDisplay = document.querySelector('#total-turns')
 const matchDisplay = document.querySelector('#matches')
@@ -63,6 +63,10 @@ const checkMatch = (img, idx) => {
 }
 
 const createBoard = () => {
+  // Fisher Yates Method Applied Here:
+  sailorGuardians.sort(() => Math.random() - 0.5)
+  // Source: JavaScript Info - Array Methods
+
   sailorGuardians.forEach((guardian, idx) => {
     let cardTop = document.createElement('img')
     cardTop.src = cardLogo
@@ -80,12 +84,17 @@ const createBoard = () => {
   })
 }
 
-resetButton.addEventListener('click', () => {
-  sailorGuardians.sort(() => Math.random() - 0.5)
+const refreshBoard = () => {
   prevIdx = null
   flipCount = 0
-  score = 0
   totalTurns = 0
-})
+  score = 0
+  turnDisplay.innerText = totalTurns
+  matchDisplay.innerText = score
+  grid.innerHTML = null
+  createBoard()
+}
+
+resetButton.addEventListener('click', refreshBoard)
 
 createBoard()
