@@ -24,8 +24,22 @@ a {
   color: bisque;
 }
 
+#left {
+  float: left;
+  width: 15%;
+  font-family: 'Bebas Neue', cursive;
+  text-align: right;
+  color: bisque;
+  font-size: 36px;
+  margin-right: 20px;
+}
+
 .grid {
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-around;
+  align-items: baseline;
+  gap: 5px;
+  float: center;
 }

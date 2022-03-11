@@ -1,140 +1,82 @@
-const nodeList = document.querySelectorAll('button')
-console.log(nodeList)
-const buttonArray = Array.from(nodeList)
-console.log(buttonArray)
+const sailorGuardians = [
+  'https://imgur.com/KMOWFgV.jpg',
+  'https://imgur.com/Alnxq5q.jpg',
+  'https://imgur.com/uEsruxa.jpg',
+  'https://imgur.com/M40MaoN.jpg',
+  'https://imgur.com/tz2Tviz.jpg',
+  'https://imgur.com/q9QSSYa.jpg',
+  'https://imgur.com/KMOWFgV.jpg',
+  'https://imgur.com/Alnxq5q.jpg',
+  'https://imgur.com/uEsruxa.jpg',
+  'https://imgur.com/M40MaoN.jpg',
+  'https://imgur.com/tz2Tviz.jpg',
+  'https://imgur.com/q9QSSYa.jpg'
+]
 
-// const sailorGuardians = [
-//   "url('https://imgur.com/4I84VuB.jpg')",
-//   "url('https://imgur.com/Zm1Zitn.jpg')",
-//   "url('https://imgur.com/rAzmj18.jpg')",
-//   "url('https://imgur.com/7m7H9QR.jpg')"
-// ]
+// const randomCardArr = Math.floor(Math.random * cardArr.length)
 
-const usagiTsukino = "url('https://imgur.com/mXffNUw.jpg')"
-const amiMizuno = "url('https://imgur.com/bfWHgAz.jpg')"
-const reiHino = "url('https://imgur.com/mESKamk.jpg')"
-const makotoKino = "url('https://imgur.com/wcSj5Ek.jpg')"
-const minakoAino = "url('https://imgur.com/hkCfQs5.jpg')"
-const chibiUsa = "url('https://imgur.com/sBsPDqM.jpg')"
-const mamoruChiba = "url('https://imgur.com/1Zmm7TP.jpg')"
-const serenity = "url('https://imgur.com/S0sac55.jpg')"
+const cardLogo = 'https://imgur.com/u2TG8t3.jpg'
 
-const oddCards = buttonArray.filter((button, idx) => {
-  return idx % 2 === 0
-})
-console.log(oddCards)
+let prevIdx = null
+let flipCount = 0
+let score = 0
 
-// const cardImages = (i) => {
-//   let sailorGuardians = [
-//     "url('https://imgur.com/4I84VuB.jpg')",
-//     "url('https://imgur.com/Zm1Zitn.jpg')",
-//     "url('https://imgur.com/rAzmj18.jpg')",
-//     "url('https://imgur.com/7m7H9QR.jpg')"
-//   ]
-//   for (let j = 0; j < 10; j++) {
-//     ;[i].style.backgroundImage = sailorGuardians[j]
-//     ;[i].style.backgroundSize = '100px 100px'
-//     ;[i].style.backgroundRepeat = 'no-repeat'
-//     ;[i].style.backgroundPosition = 'center'
-//   }
-// }
-
-// for (let i = 0; i < oddCards.length; i++) {
-//   oddCards[i].addEventListener('click', () => {
-//     cardImages(i)
-//   })
-// }
-
-// To-Do
-// Flip Cards Back Over After Detection
-// Randomize Board - Card Array
-
-// Class Notes:
-// const changeClass = (arr, idx) => {
-//   arr.forEach((arr, idx) => {
-//     if (idx === arr[0])
-//   }
-// }
-
-// const evenCards = buttonArray.filter((button, idx) => {
-//   return idx % 2 !== 0
-// })
-// console.log(evenCards)
-
-const cOne = document.querySelector('#one')
-const cTwo = document.querySelector('#two')
-const cThree = document.querySelector('#three')
-const cFour = document.querySelector('#four')
-const cFive = document.querySelector('#five')
-const cSix = document.querySelector('#six')
-const cSeven = document.querySelector('#seven')
-const cEight = document.querySelector('#eight')
-
-const turnCard = (button, image) => {
-  button.style.backgroundImage = image
-  button.style.backgroundSize = '225px 225px'
-  button.style.backgroundRepeat = 'no-repeat'
-  button.style.backgroundPosition = 'center'
+const flipCard = (div, img, idx) => {
+  if (div.classList.contains('flipped')) {
+    console.log('This card is flipped!')
+  } else {
+    div.className = 'flipped'
+    img.src = sailorGuardians[idx]
+    flipCount++
+    console.log(`Flip Count: ${flipCount}`)
+    if (flipCount === 1) {
+      prevIdx = idx
+      //  null = [0]
+      //  [0] = [1]
+      console.log(`Previous Index: ${prevIdx}`)
+      console.log(`Sailor Guardian Index is now: ${sailorGuardians[idx]}`)
+    } else if (flipCount === 2) {
+      checkMatch(img, idx)
+    }
+  }
 }
 
-cOne.addEventListener('click', () => {
-  turnCard(cOne, usagiTsukino)
-})
+const checkMatch = (img, idx) => {
+  if (sailorGuardians[idx] === sailorGuardians[prevIdx]) {
+    console.log('Test')
+    score++
+    console.log('Score: ', score)
+  } else {
+    setTimeout(() => {
+      let prevCard = document.getElementById(`card-${prevIdx}`)
+      let curCard = document.getElementById(`card-${idx}`)
+      prevCard.firstElementChild.src = cardLogo
+      curCard.firstElementChild.src = cardLogo
+      curCard.classList.toggle('flipped')
+      prevCard.classList.toggle('flipped')
+    }, 2000)
+  }
+  flipCount = 0
+}
 
-cTwo.addEventListener('click', () => {
-  turnCard(cTwo, amiMizuno)
-})
+const createBoard = () => {
+  sailorGuardians.forEach((guardian, idx) => {
+    let cardTop = document.createElement('img')
+    cardTop.src = cardLogo
+    // Make a CSS Class for Images
+    cardTop.style.height = '250px'
+    cardTop.style.width = '160px'
 
-cThree.addEventListener('click', () => {
-  turnCard(cThree, reiHino)
-})
+    let cardDiv = document.createElement('div')
+    cardDiv.id = `card-${idx}`
+    cardDiv.append(cardTop)
+    document.querySelector('.grid').append(cardDiv)
 
-cFour.addEventListener('click', () => {
-  turnCard(cFour, makotoKino)
-})
+    cardDiv.addEventListener('click', () => {
+      console.log(cardDiv)
+      flipCard(cardDiv, cardTop, idx)
+    })
+  })
+}
 
-cFive.addEventListener('click', () => {
-  turnCard(cFive, minakoAino)
-})
-
-cSix.addEventListener('click', () => {
-  turnCard(cSix, chibiUsa)
-})
-
-cSeven.addEventListener('click', () => {
-  turnCard(cSeven, mamoruChiba)
-})
-
-cEight.addEventListener('click', () => {
-  turnCard(cEight, serenity)
-})
-
-// cFive.addEventListener('click', () => {
-//   turnCard(cFive)
-// })
-
-// cTwo.addEventListener('click', () => {
-//   turnCard(cTwo, "url('https://imgur.com/rAzmj18.jpg')")
-// })
-
-// Brain Child Sanctuary:
-
-// Logic/Research:
-
-// Assigning the same image to two buttons at once, yet each button still waits for an individual click?
-// Assigning image URLs to global variables? (didn't work on the first try)
-// Randomize image URLs? How to control this, though? (so that each card has a match)
-
-// Functions:
-
-// const assignListeners = (arr) => {
-//   arr.forEach((elem) => {
-//     arr.addEventListener('click', () => {
-//       turnCard(elem)
-//     })
-//   })
-// }
-
-// Images:
-
-// Card One: "url('https://imgur.com/4I84VuB.jpg')"
+createBoard()

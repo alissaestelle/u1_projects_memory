@@ -1,11 +1,22 @@
 const sailorGuardians = [
-  'https://imgur.com/rmz0QP6.jpg',
-  'https://imgur.com/PTjwCsw.jpg',
-  'https://imgur.com/fDgT6qD.jpg',
-  'https://imgur.com/6ZCY7we.jpg',
-  'https://imgur.com/YqZJqKw.jpg',
-  'https://imgur.com/PyXIgcL.jpg'
-  //  'https://imgur.com/7m7H9QR.jpg'
+  'https://imgur.com/KMOWFgV.jpg',
+  'https://imgur.com/Alnxq5q.jpg',
+  'https://imgur.com/uEsruxa.jpg',
+  'https://imgur.com/M40MaoN.jpg',
+  'https://imgur.com/tz2Tviz.jpg',
+  'https://imgur.com/q9QSSYa.jpg',
+  'https://imgur.com/boZ9C0p.jpg',
+  'https://imgur.com/lrPz8Bt.jpg',
+  'https://imgur.com/VJ4dhIQ.jpg',
+  'https://imgur.com/KMOWFgV.jpg',
+  'https://imgur.com/Alnxq5q.jpg',
+  'https://imgur.com/uEsruxa.jpg',
+  'https://imgur.com/M40MaoN.jpg',
+  'https://imgur.com/tz2Tviz.jpg',
+  'https://imgur.com/q9QSSYa.jpg',
+  'https://imgur.com/boZ9C0p.jpg',
+  'https://imgur.com/lrPz8Bt.jpg',
+  'https://imgur.com/VJ4dhIQ.jpg'
 ]
 
 // const randomCardArr = Math.floor(Math.random * cardArr.length)
@@ -59,8 +70,8 @@ const createBoard = () => {
     let cardTop = document.createElement('img')
     cardTop.src = cardLogo
     // Make a CSS Class for Images
-    // cardTop.style.height = '200px'
-    // cardTop.style.width = '125px'
+    cardTop.style.height = '250px'
+    cardTop.style.width = '160px'
 
     let cardDiv = document.createElement('div')
     cardDiv.id = `card-${idx}`

@@ -31,7 +31,7 @@ a {
 
 #left {
   float: left;
-  width: 20%;
+  width: 15%;
   font-family: 'Bebas Neue', cursive;
   text-align: right;
   color: bisque;
@@ -40,8 +40,7 @@ a {
 }
 
 .grid {
-  height: 600px;
-  width: 800px;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
