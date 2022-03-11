@@ -26,8 +26,9 @@ let flipCount = 0
 let score = 0
 let totalTurns = 0
 
-let turnDisplay = document.querySelector('#total-turns')
-let matchDisplay = document.querySelector('#matches')
+const turnDisplay = document.querySelector('#total-turns')
+const matchDisplay = document.querySelector('#matches')
+const resetButton = document.querySelector('.reset')
 
 const flipCard = (div, img, idx) => {
   if (div.classList.contains('flipped')) {
@@ -83,8 +84,14 @@ const createBoard = () => {
   })
 }
 
+resetButton.addEventListener('click', () => {
+  sailorGuardians.sort(() => Math.random() - 0.5)
+  prevIdx = null
+  flipCount = 0
+  score = 0
+  totalTurns = 0
+})
+
 createBoard()
 
-// Add Reset Button
-// Randomize Board
 // Deploy: Media Query?

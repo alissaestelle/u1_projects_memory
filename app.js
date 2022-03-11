@@ -79,4 +79,12 @@ const createBoard = () => {
   })
 }
 
+resetButton.addEventListener('click', () => {
+  sailorGuardians.sort(() => Math.random() - 0.5)
+  prevIdx = null
+  flipCount = 0
+  score = 0
+  totalTurns = 0
+})
+
 createBoard()
