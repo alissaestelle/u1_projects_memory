@@ -20,8 +20,9 @@ let flipCount = 0
 let score = 0
 let totalTurns = 0
 
-let turnDisplay = document.querySelector('#total-turns')
-let matchDisplay = document.querySelector('#matches')
+const turnDisplay = document.querySelector('#total-turns')
+const matchDisplay = document.querySelector('#matches')
+const resetButton = document.querySelector('.reset')
 
 const flipCard = (div, img, idx) => {
   if (div.classList.contains('flipped')) {

@@ -85,7 +85,9 @@ const createBoard = () => {
 }
 
 resetButton.addEventListener('click', () => {
+  // Fisher Yates Method Applied Here:
   sailorGuardians.sort(() => Math.random() - 0.5)
+  // Source: JavaScript Info - Array Methods
   prevIdx = null
   flipCount = 0
   score = 0
