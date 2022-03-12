@@ -65,6 +65,6 @@ button {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: baseline;
-  gap: 0.3em;
+  gap: 0.02em;
   float: center;
 }
