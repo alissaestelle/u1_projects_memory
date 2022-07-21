@@ -5,18 +5,12 @@ const sailorGuardians = [
   'https://imgur.com/M40MaoN.jpg',
   'https://imgur.com/tz2Tviz.jpg',
   'https://imgur.com/q9QSSYa.jpg',
-  'https://imgur.com/boZ9C0p.jpg',
-  'https://imgur.com/lrPz8Bt.jpg',
-  'https://imgur.com/VJ4dhIQ.jpg',
   'https://imgur.com/KMOWFgV.jpg',
   'https://imgur.com/Alnxq5q.jpg',
   'https://imgur.com/uEsruxa.jpg',
   'https://imgur.com/M40MaoN.jpg',
   'https://imgur.com/tz2Tviz.jpg',
-  'https://imgur.com/q9QSSYa.jpg',
-  'https://imgur.com/boZ9C0p.jpg',
-  'https://imgur.com/lrPz8Bt.jpg',
-  'https://imgur.com/VJ4dhIQ.jpg'
+  'https://imgur.com/q9QSSYa.jpg'
 ]
 
 const cardLogo = 'https://imgur.com/u2TG8t3.jpg'
@@ -26,7 +20,7 @@ let flipCount = 0
 let totalTurns = 0
 let score = 0
 
-const turnDisplay = document.querySelector('#total-turns')
+const turnDisplay = document.querySelector('#turns')
 const matchDisplay = document.querySelector('#matches')
 const resetButton = document.querySelector('.reset')
 const grid = document.querySelector('.grid')
@@ -37,8 +31,9 @@ const flipCard = (div, img, idx) => {
   } else {
     div.className = 'flipped'
     img.src = sailorGuardians[idx]
-    img.className = 'card-style'
+    img.className = 'image-style'
     flipCount++
+    console.log(`Flip Count: ${flipCount}`)
     if (flipCount === 1) {
       prevIdx = idx
       //  null = [0]
@@ -76,7 +71,7 @@ const createBoard = () => {
   sailorGuardians.forEach((guardian, idx) => {
     let cardTop = document.createElement('img')
     cardTop.src = cardLogo
-    cardTop.className = 'card-style'
+    cardTop.className = 'image-style'
 
     let cardDiv = document.createElement('div')
     cardDiv.id = `card-${idx}`
@@ -103,5 +98,3 @@ const refreshBoard = () => {
 resetButton.addEventListener('click', refreshBoard)
 
 createBoard()
-
-// Deploy: Media Query?

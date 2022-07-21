@@ -4,36 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="./style/index.css" />
+  <script defer src="./js/index.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Molle:ital@1&display=swap" rel="stylesheet">
   <title>Sailor Moon Memory</title>
 </head>
 <body>
-  <header>
-    <h1>Sailor Moon Memory</h1>
-    <h3>Level 1</h3>
-  </header>
   <main>
-    <aside id="left">
-      <div class="display">
-        <p>Tries:<span id="total-turns">0</span></p>
-      </div> 
-      <div class="display">
-        <p></span>Matches: <span id="matches">0</span></p>
+    <div class="page-wrap">
+      <div class="header">
+        <h1>Sailor Moon Memory</h1>
       </div>
-      <br>
-      <br>
-      <div>
-        <button class="reset">Reset</button>
+      <div class="main-wrap">
+        <div class="sidebar">
+          <div class="display">
+            <h2>Tries:<span id="turns">0</span></h2>
+            <h2>Matches:<span id="matches">0</span></h2>
+          </div>
+          <div class="options-wrap">
+            <button class="reset">Reset</button>
+            <a id="link" href="new.html">Level 2</a>
+          </div>
+        </div>
+        <div class="grid-wrap">
+          <div class="grid">
+          </div>
+        </div>
+        <div class="level-wrap">
+          <h1>Level<span id="one">1</span></h1>
+        </div>
       </div>
-      <div>
-        <a href="new.html">Level 2</a>
-      </div>
-    </aside>
-    <div class="grid">
     </div>
   </main>
 </body>
